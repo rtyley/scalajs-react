@@ -31,7 +31,15 @@ object HelloMessageExample {
   // EXAMPLE:START
 
   val HelloMessage = ScalaComponent.builder[String]("HelloMessage")
-    .render($ => <.div("Hello ", $.props))
+    .render($ =>
+      <.div(
+        "Hello ",
+        <.progress(
+          ^.max := 100.0,
+          ^.value := 10.0
+        ),
+        $.props)
+    )
     .build
 
   // EXAMPLE:END
